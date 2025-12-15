@@ -15,7 +15,7 @@
 - To submit Bug Reports or Suggestions please join the official discord server and submit your report/reports or suggestions
 
 # Credits
-- The [Fabric Team](https://github.com/FabricMC) for [Fabric](https://github.com/FabricMC/fabric-loader) and [Yarn](https://github.com/FabricMC/yarn)
+- [Fabric Team](https://github.com/FabricMC): [Fabric](https://github.com/FabricMC/fabric-loader) and [Yarn](https://github.com/FabricMC/yarn)
 
 # License
 Read the License at LICENSE.txt file
