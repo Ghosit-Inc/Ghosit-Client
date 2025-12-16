@@ -23,15 +23,28 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
+    mavenCentral()
+
+    // LIBS FLATDIR
+    flatDir { dirs "libs" }
 }
 
 dependencies {
-    // To change the versions see the gradle.properties file
+    // Version (to change the versions see the gradle.properties file)
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
+
+    // Yarn
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+
+    // Fabric Loader
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
+    // Fabric API
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    // Discord IPC
+    implementation group: "", name: "DiscordIPC", version: ""
+
 }
 
 processResources {
