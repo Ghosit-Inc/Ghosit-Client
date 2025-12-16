@@ -1,9 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "de.constt.nexsus_client.mixin",
+  "package": "de.constt.nexsus_client.client.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "ClientConnectionMixin",
+    "PlayerMoveC2SPacketAccessor"
   ],
   "client": [
   ],
