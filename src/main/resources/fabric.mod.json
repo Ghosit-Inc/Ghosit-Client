@@ -7,7 +7,6 @@
   "authors": [],
   "contact": {},
   "license": "All-Rights-Reserved",
-  "icon": "assets/nexsus_client/icon.png",
   "environment": "client",
   "entrypoints": {
     "fabric-datagen": [
@@ -27,5 +26,10 @@
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}"
+  },
+  "icon": {
+    "16": "assets/nexsus_client/textures/icon-16.png",
+    "32": "assets/nexsus_client/textures/icon-32.png"
   }
+
 }
