@@ -3,16 +3,15 @@ package de.constt.nexsus_client.client.roots.implementations;
 import net.minecraft.network.packet.Packet;
 
 public abstract class ModuleImplementation {
-    public static String name;
-    protected static boolean enabled = false;
-    public static String description;
-    public static String keybind;
+    protected boolean enabled = false;
+
 
     /**
      * Toggle the module
+     *
      */
-    public static void toggle() {
-        enabled = !enabled;
+    public void toggle() {
+        this.enabled = !this.enabled;
     }
 
     /**
@@ -20,7 +19,7 @@ public abstract class ModuleImplementation {
      * @return the name of the module
      */
     public static String getTranslatableText() {
-        return name;
+        return "temp";
     };
 
     /**
@@ -41,7 +40,18 @@ public abstract class ModuleImplementation {
      */
     public void postTick() { }
 
-    public abstract boolean modifyPacket(Packet<?> packet);
+    /**
+     * Is called when the module gets enabled
+     */
+    public void onEnable() { }
 
-    public abstract void onTick();
+    /**
+     * Is called when the module gets disabled
+     */
+    public void onDisable() { }
+
+
+    public boolean modifyPacket(Packet<?> packet) {
+        return false;
+    };
 }
