@@ -16,6 +16,8 @@
 
 # Credits
 - [Fabric Team](https://github.com/FabricMC): [Fabric](https://github.com/FabricMC/fabric-loader) and [Yarn](https://github.com/FabricMC/yarn)
+- [Keksuccino](https://github.com/Keksuccino): [FancyMenu - Custom WindowIcon Code](https://github.com/Keksuccino/FancyMenu)
+- [ProfessorQu](https://github.com/ProfessorQu): Code snippets from [ProfQuHack](https://github.com/ProfessorQu/ProfQuHack)
 
 # License
 Read the License at LICENSE.txt file
