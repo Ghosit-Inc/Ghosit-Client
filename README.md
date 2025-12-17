@@ -1,3 +1,7 @@
+<p align="center">
+    <img style="border-radius: 50px;" src="https://raw.githubusercontent.com/Nexsus-Inc/Nexsus-Client/refs/heads/main/assets/images/logo.png" alt="Nexsus Client Logo" width="20%"/>
+</p>
+
 <h1 align="center">Nexsus Client</h1>
 <p align="center">The only anarchy client you need</p>
 
