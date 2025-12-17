@@ -22,6 +22,7 @@
 - [Fabric Team](https://github.com/FabricMC): [Fabric](https://github.com/FabricMC/fabric-loader) and [Yarn](https://github.com/FabricMC/yarn)
 - [Keksuccino](https://github.com/Keksuccino): [FancyMenu - Custom WindowIcon Code](https://github.com/Keksuccino/FancyMenu)
 - [ProfessorQu](https://github.com/ProfessorQu): Code snippets from [ProfQuHack](https://github.com/ProfessorQu/ProfQuHack)
+- [Meteor Client](https://meteorclient.net): [Splashtext Mixin](https://github.com/MeteorDevelopment/meteor-client/blob/master/src%2Fmain%2Fjava%2Fmeteordevelopment%2Fmeteorclient%2Fmixin%2FSplashTextResourceSupplierMixin.java)
 
 # License
 Read the License at LICENSE.txt file
