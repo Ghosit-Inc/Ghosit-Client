@@ -3,6 +3,9 @@ package de.constt.nexsus_client.client.roots.modules.render;
 import de.constt.nexsus_client.client.annotations.InfoAnnotation;
 import de.constt.nexsus_client.client.roots.implementations.CategoryImplementation;
 import de.constt.nexsus_client.client.roots.implementations.ModuleImplementation;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.network.packet.Packet;
 
 @InfoAnnotation(
@@ -12,7 +15,28 @@ import net.minecraft.network.packet.Packet;
 )
 public class FullbrightModule extends ModuleImplementation {
     @Override
-    public boolean modifyPacket(Packet<?> packet) {
-        return false;
+    public void onEnable() {
+        enableNightVision();
+        super.onEnable();
+    }
+
+    @Override
+    public void onDisable() {
+        disableNightVision();
+        super.onDisable();
+    }
+
+    public static void enableNightVision() {
+        MinecraftClient client = MinecraftClient.getInstance();
+        if (client.player != null) {
+            client.player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 1_000_000, 0, false, false, false));
+        }
+    }
+
+    public static void disableNightVision() {
+        MinecraftClient client = MinecraftClient.getInstance();
+        if (client.player != null) {
+            client.player.removeStatusEffect(StatusEffects.NIGHT_VISION);
+        }
     }
 }
