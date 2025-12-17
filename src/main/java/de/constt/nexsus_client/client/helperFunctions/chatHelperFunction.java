@@ -9,7 +9,7 @@ public class chatHelperFunction {
     public static String prefix;
 
     public static String getPrefix() {
-        return prefix + " | ";
+        return "§l"+prefix + "§r | ";
     }
 
     public static void setPrefix(String newPrefix) {
