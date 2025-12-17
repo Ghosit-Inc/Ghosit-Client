@@ -5,6 +5,7 @@ import de.constt.nexsus_client.client.roots.implementations.ModuleImplementation
 import de.constt.nexsus_client.client.roots.modules.misc.PacketLoggerModule;
 import de.constt.nexsus_client.client.roots.modules.movement.FlightModule;
 import de.constt.nexsus_client.client.roots.modules.player.NoHungerModule;
+import de.constt.nexsus_client.client.roots.modules.render.FPSHudModule;
 import de.constt.nexsus_client.client.roots.modules.render.FullbrightModule;
 import de.constt.nexsus_client.client.roots.modules.render.NoWheaterModule;
 import de.constt.nexsus_client.client.roots.modules.world.NoFallModule;
@@ -23,6 +24,7 @@ public class ModuleManager {
         MODULES.add(new NoHungerModule());
         MODULES.add(new NoWheaterModule());
         MODULES.add(new PacketLoggerModule());
+        MODULES.add(new FPSHudModule());
     }
 
 
@@ -78,8 +80,10 @@ public class ModuleManager {
 
     public static void tempToggleModules() {
         // TEMP: MODULE TOGGLE
+        /*
         ModuleManager.toggle(NoFallModule.class);
         ModuleManager.toggle(NoHungerModule.class);
+        */
     }
 }
 
