@@ -2,13 +2,16 @@ package de.constt.nexsus_client.client.roots.modules;
 
 import de.constt.nexsus_client.client.roots.implementations.ModuleImplementation;
 
+import de.constt.nexsus_client.client.roots.modules.misc.DebuggerModule;
 import de.constt.nexsus_client.client.roots.modules.misc.PacketLoggerModule;
+import de.constt.nexsus_client.client.roots.modules.misc.SpammerModule;
 import de.constt.nexsus_client.client.roots.modules.movement.FlightModule;
 import de.constt.nexsus_client.client.roots.modules.player.NoHungerModule;
 import de.constt.nexsus_client.client.roots.modules.render.FPSHudModule;
 import de.constt.nexsus_client.client.roots.modules.render.FullbrightModule;
 import de.constt.nexsus_client.client.roots.modules.render.NoWheaterModule;
 import de.constt.nexsus_client.client.roots.modules.world.NoFallModule;
+import net.minecraft.client.option.KeyBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +28,8 @@ public class ModuleManager {
         MODULES.add(new NoWheaterModule());
         MODULES.add(new PacketLoggerModule());
         MODULES.add(new FPSHudModule());
+        MODULES.add(new SpammerModule());
+        MODULES.add(new DebuggerModule());
     }
 
 
@@ -34,6 +39,10 @@ public class ModuleManager {
      */
     public static List<ModuleImplementation> getModules() {
         return MODULES;
+    }
+
+    public static void setBind(ModuleImplementation module, int keyBinding) {
+        module.keyBindingCode = keyBinding;
     }
 
 
