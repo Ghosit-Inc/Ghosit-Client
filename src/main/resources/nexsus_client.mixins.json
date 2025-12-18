@@ -5,9 +5,10 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "ClientConnectionMixin",
-    "PlayerMoveC2SPacketAccessor"
+    "PlayerMoveC2SPacketAccessor",
   ],
   "client": [
+    "ChatInputSuggestorMixin",
     "SplashTextResourceSupplierMixin"
   ],
   "injectors": {
