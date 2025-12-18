@@ -3,14 +3,14 @@
   "id": "nexsus_client",
   "version": "${version}",
   "name": "Nexsus Client",
-  "description": "The client for any anarchy server",
+  "description": "The utility mod for any anarchy server",
   "authors": ["Nexsus, Inc"],
   "contact": {},
   "license": "All-Rights-Reserved",
   "environment": "client",
   "entrypoints": {
     "fabric-datagen": [
-      "de.constt.nexsus_client.client.Nexsus_clientDataGenerator"
+      "de.constt.nexsus_client.client.utilities.Nexsus_clientDataGenerator"
     ],
     "client": [
       "de.constt.nexsus_client.client.Nexsus_clientClient"
