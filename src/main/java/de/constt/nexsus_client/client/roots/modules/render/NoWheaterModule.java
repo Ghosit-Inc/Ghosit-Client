@@ -6,7 +6,7 @@ import de.constt.nexsus_client.client.roots.implementations.ModuleImplementation
 import net.minecraft.network.packet.Packet;
 
 @InfoAnnotation(
-        name = "No Wheater",
+        name = "No-Wheater",
         description = "Toggle specific Wheater",
         category = CategoryImplementation.Categories.RENDER
 )
