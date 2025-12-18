@@ -7,7 +7,7 @@ import de.constt.nexsus_client.client.roots.implementations.ModuleImplementation
 import net.minecraft.network.packet.Packet;
 
 @InfoAnnotation(
-        name = "Packet Logger",
+        name = "Packet-Logger",
         description = "Logs packets in chat",
         category = CategoryImplementation.Categories.MISC
 )
