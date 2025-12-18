@@ -50,7 +50,8 @@ dependencies {
 
     // Discord IPC
     // modImplementation files('libs/DiscordIPC.jar')
-    implementation 'com.jagrosh:DiscordIPC:0.4'
+    //implementation 'com.jagrosh:DiscordIPC:0.4'
+    include implementation('com.jagrosh:DiscordIPC:0.4')
 }
 
 processResources {
