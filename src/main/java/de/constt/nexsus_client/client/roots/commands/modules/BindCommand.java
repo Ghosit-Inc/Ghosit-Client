@@ -6,6 +6,7 @@ import de.constt.nexsus_client.client.helperFunctions.ModuleAnnotationHelperFunc
 import de.constt.nexsus_client.client.roots.implementations.CommandImplementation;
 import de.constt.nexsus_client.client.roots.modules.ModuleManager;
 import de.constt.nexsus_client.client.roots.modules.misc.DebuggerModule;
+import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.Objects;
@@ -31,15 +32,18 @@ public class BindCommand extends CommandImplementation {
 
             ModuleManager.getModules().forEach(module -> {
                 if (Objects.equals(ModuleAnnotationHelperFunction.getInternalModuleName(module.getClass()), moduleArg)) {
+                    if(module.keyBindingCode != GLFW.GLFW_KEY_UNKNOWN) {
+                        ChatHelperFunction.sendCSMessageWarning("Module is already bounded §7(§f"+ InputUtil.fromKeyCode(module.keyBindingCode, 0)+"§r§7)");
+                    } else {
+                        int keyCode = getKeyCode(keybindArg);
 
-                    int keyCode = getKeyCode(keybindArg);
+                        ModuleManager.setBind(module, keyCode);
 
-                    ModuleManager.setBind(module, keyCode);
+                        ChatHelperFunction.sendCSMessageNeutral("Bound " + moduleArg + " to " + keybindArg);
 
-                    ChatHelperFunction.sendCSMessageNeutral("Bound " + moduleArg + " to " + keybindArg);
-
-                    if(ModuleManager.isEnabled(DebuggerModule.class)) {
-                        ChatHelperFunction.sendCSMessageWarning("Bind: "+module.getKeybindingCode());
+                        if(ModuleManager.isEnabled(DebuggerModule.class)) {
+                            ChatHelperFunction.sendCSMessageWarning("Bind: "+module.getKeybindingCode());
+                        }
                     }
                 }
             });
