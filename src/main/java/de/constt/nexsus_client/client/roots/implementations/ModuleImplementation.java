@@ -1,6 +1,6 @@
 package de.constt.nexsus_client.client.roots.implementations;
 
-import de.constt.nexsus_client.client.helperFunctions.moduleAnnotationHelperFunction;
+import de.constt.nexsus_client.client.helperFunctions.ModuleAnnotationHelperFunction;
 import net.minecraft.network.packet.Packet;
 
 public abstract class ModuleImplementation {
@@ -24,7 +24,7 @@ public abstract class ModuleImplementation {
      * @return the name of the module
      */
     public String getTranslatableText() {
-        return moduleAnnotationHelperFunction.getName(this.getClass());
+        return ModuleAnnotationHelperFunction.getName(this.getClass());
     };
 
     /**
