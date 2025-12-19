@@ -6,11 +6,13 @@ import de.constt.nexsus_client.client.roots.modules.misc.DebuggerModule;
 import de.constt.nexsus_client.client.roots.modules.misc.PacketLoggerModule;
 import de.constt.nexsus_client.client.roots.modules.misc.SpammerModule;
 import de.constt.nexsus_client.client.roots.modules.movement.FlightModule;
+import de.constt.nexsus_client.client.roots.modules.movement.GUIMoveModule;
 import de.constt.nexsus_client.client.roots.modules.player.NoHungerModule;
 import de.constt.nexsus_client.client.roots.modules.render.FPSHudModule;
 import de.constt.nexsus_client.client.roots.modules.render.FullbrightModule;
 import de.constt.nexsus_client.client.roots.modules.render.NoWheaterModule;
 import de.constt.nexsus_client.client.roots.modules.world.NoFallModule;
+import de.constt.nexsus_client.client.roots.modules.world.XRayModule;
 import net.minecraft.client.option.KeyBinding;
 
 import java.util.ArrayList;
@@ -30,12 +32,14 @@ public class ModuleManager {
         MODULES.add(new FPSHudModule());
         MODULES.add(new SpammerModule());
         MODULES.add(new DebuggerModule());
+        MODULES.add(new XRayModule());
+        MODULES.add(new GUIMoveModule());
     }
 
 
     /**
      * Gets a list of loaded modules
-     * @return a list of hacks
+     * @return a list of modules
      */
     public static List<ModuleImplementation> getModules() {
         return MODULES;
@@ -51,9 +55,9 @@ public class ModuleManager {
     }
 
     /**
-     * Get the hack from {@code MODULES} that matches the class {@code moduleClass}
-     * @param 	moduleClass the hack to get
-     * @return	the matching hack from {@code MODULES}
+     * Get the module from {@code MODULES} that matches the class {@code moduleClass}
+     * @param 	moduleClass the module to get
+     * @return	the matching module from {@code MODULES}
      * @param 	<T> extends ModuleImplementation
      */
     public static <T extends ModuleImplementation> T getModule(Class<T> moduleClass) {
@@ -67,9 +71,9 @@ public class ModuleManager {
 
 
     /**
-     * Checks if the hack with class {@code moduleClass} is enabled
+     * Checks if the module with class {@code moduleClass} is enabled
      * @param 	moduleClass the class to search for
-     * @return	whether the hack is enabled
+     * @return	whether the module is enabled
      */
     public static boolean isEnabled(Class<? extends ModuleImplementation> moduleClass) {
         var module = getModule(moduleClass);
@@ -77,11 +81,11 @@ public class ModuleManager {
     }
 
     /**
-     * Toggles enabled for the hack with class {@code hackClass}
-     * @param hackClass the class to toggle
+     * Toggles enabled for the module with class {@code moduleClass}
+     * @param moduleClass the class to toggle
      */
-    public static void toggle(Class<? extends ModuleImplementation> hackClass) {
-        var module = getModule(hackClass);
+    public static void toggle(Class<? extends ModuleImplementation> moduleClass) {
+        var module = getModule(moduleClass);
         if (module != null) {
             module.toggle();
         }
