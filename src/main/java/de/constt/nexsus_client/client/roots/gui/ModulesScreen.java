@@ -1,7 +1,7 @@
 package de.constt.nexsus_client.client.roots.gui;
 
-import de.constt.nexsus_client.client.helperFunctions.moduleAnnotationHelperFunction;
-import de.constt.nexsus_client.client.helperFunctions.chatHelperFunction;
+import de.constt.nexsus_client.client.helperFunctions.ModuleAnnotationHelperFunction;
+import de.constt.nexsus_client.client.helperFunctions.ChatHelperFunction;
 import de.constt.nexsus_client.client.roots.gui.widgets.BlackButtonWidget;
 import de.constt.nexsus_client.client.roots.implementations.ModuleImplementation;
 import de.constt.nexsus_client.client.roots.modules.ModuleManager;
@@ -25,7 +25,7 @@ public class ModulesScreen extends Screen {
         int spacing = 20;
 
         for (ModuleImplementation module : ModuleManager.getModules()) {
-            this.addDrawableChild(new BlackButtonWidget(x, y, 100, 15, moduleAnnotationHelperFunction.getName(module.getClass()), button -> {
+            this.addDrawableChild(new BlackButtonWidget(x, y, 100, 15, ModuleAnnotationHelperFunction.getName(module.getClass()), button -> {
                 module.toggle();
                 String status = module.getEnabledStatus() ? "on" : "off";
                 String statusColorCoded = status;
@@ -37,7 +37,7 @@ public class ModulesScreen extends Screen {
 
                 if(Objects.requireNonNull(ModuleManager.getModule(DebuggerModule.class)).getEnabledStatus()) {
                     if (MinecraftClient.getInstance().player != null) {
-                        chatHelperFunction.sendCSMessageNeutral("§8Toggled§r "+ moduleAnnotationHelperFunction.getName(module.getClass()) + " (" + statusColorCoded + ")");
+                        ChatHelperFunction.sendCSMessageNeutral("§8Toggled§r "+ ModuleAnnotationHelperFunction.getName(module.getClass()) + " (" + statusColorCoded + ")");
                     }
                 }
             }));
