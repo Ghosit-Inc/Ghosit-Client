@@ -1,17 +1,17 @@
 package de.constt.nexsus_client.client.roots.modules.render;
 
-import de.constt.nexsus_client.client.annotations.InfoAnnotation;
+import de.constt.nexsus_client.client.annotations.ModuleInfoAnnotation;
 import de.constt.nexsus_client.client.roots.implementations.CategoryImplementation;
 import de.constt.nexsus_client.client.roots.implementations.ModuleImplementation;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.network.packet.Packet;
 
-@InfoAnnotation(
+@ModuleInfoAnnotation(
         name = "Fullbright",
         description = "Changes the gamma to be always max bright",
-        category = CategoryImplementation.Categories.RENDER
+        category = CategoryImplementation.Categories.RENDER,
+        internalModuleName = "fullbright"
 )
 public class FullbrightModule extends ModuleImplementation {
     @Override
