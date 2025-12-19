@@ -5,6 +5,7 @@
   "name": "Nexsus Client",
   "description": "The utility mod for any anarchy server",
   "authors": ["Nexsus, Inc"],
+  "provider": "Nexsus, Inc",
   "contact": {},
   "license": "All-Rights-Reserved",
   "environment": "client",
