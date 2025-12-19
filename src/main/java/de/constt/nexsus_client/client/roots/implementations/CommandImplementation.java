@@ -1,5 +1,7 @@
 package de.constt.nexsus_client.client.roots.implementations;
 
-public class CommandImplementation {
+import de.constt.nexsus_client.client.annotations.CommandAnnotation;
 
+public class CommandImplementation {
+    public void executeCommand(String[] parts) {}
 }
