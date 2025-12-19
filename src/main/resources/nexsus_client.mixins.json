@@ -4,11 +4,15 @@
   "package": "de.constt.nexsus_client.client.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "AbstractBlockStateMixin",
+    "BiomeMixin",
     "ClientConnectionMixin",
     "PlayerMoveC2SPacketAccessor",
+    "WorldMixin"
   ],
   "client": [
     "ChatInputSuggestorMixin",
+    "LightmapTextureManagerMixin",
     "SplashTextResourceSupplierMixin"
   ],
   "injectors": {
