@@ -1,13 +1,14 @@
 package de.constt.nexsus_client.client.roots.modules.misc;
 
-import de.constt.nexsus_client.client.annotations.InfoAnnotation;
+import de.constt.nexsus_client.client.annotations.ModuleInfoAnnotation;
 import de.constt.nexsus_client.client.roots.implementations.CategoryImplementation;
 import de.constt.nexsus_client.client.roots.implementations.ModuleImplementation;
 
-@InfoAnnotation(
+@ModuleInfoAnnotation(
         name = "Debugger",
         description = "Debug modules and the client",
-        category = CategoryImplementation.Categories.MISC
+        category = CategoryImplementation.Categories.MISC,
+        internalModuleName = "debugger"
 )
 
 public class DebuggerModule extends ModuleImplementation { }
