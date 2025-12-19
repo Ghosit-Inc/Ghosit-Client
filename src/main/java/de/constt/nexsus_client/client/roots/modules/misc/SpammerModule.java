@@ -1,14 +1,15 @@
 package de.constt.nexsus_client.client.roots.modules.misc;
 
-import de.constt.nexsus_client.client.annotations.InfoAnnotation;
+import de.constt.nexsus_client.client.annotations.ModuleInfoAnnotation;
 import de.constt.nexsus_client.client.roots.implementations.CategoryImplementation;
 import de.constt.nexsus_client.client.roots.implementations.ModuleImplementation;
 import net.minecraft.client.MinecraftClient;
 
-@InfoAnnotation(
+@ModuleInfoAnnotation(
         name = "Spammer",
         description = "Automaticly sends messages from your account to chat",
-        category = CategoryImplementation.Categories.MISC
+        category = CategoryImplementation.Categories.MISC,
+        internalModuleName = "spammer"
 
 )
 
