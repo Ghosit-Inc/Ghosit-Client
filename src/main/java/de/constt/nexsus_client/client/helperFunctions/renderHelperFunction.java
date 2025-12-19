@@ -10,7 +10,7 @@ import net.minecraft.client.gui.DrawContext;
 
 import java.util.Objects;
 
-public class renderHelperFunction {
+public class RenderHelperFunction {
     public static void renderHud(DrawContext drawContext) {
         var textRenderer = MinecraftClient.getInstance().textRenderer;
         var player = MinecraftClient.getInstance().player;
@@ -36,7 +36,7 @@ public class renderHelperFunction {
 
         assert MinecraftClient.getInstance().player != null;
         textRenderer.draw(
-                chatHelperFunction.getPrefix()+" [v"+clientVersion+"]",
+                ChatHelperFunction.getPrefix()+" [v"+clientVersion+"]",
                 5,5,
                 textColor, true,
                 matrices,
@@ -85,8 +85,8 @@ public class renderHelperFunction {
         for(ModuleImplementation module: ModuleManager.getModules()) {
             if(Objects.requireNonNull(ModuleManager.getModule(module.getClass())).getEnabledStatus()) {
                 textRenderer.draw(
-                        moduleAnnotationHelperFunction.getName(module.getClass()),
-                        screenWidth - MinecraftClient.getInstance().textRenderer.getWidth(moduleAnnotationHelperFunction.getName(module.getClass())) - 5, yOffset,
+                        ModuleAnnotationHelperFunction.getName(module.getClass()),
+                        screenWidth - MinecraftClient.getInstance().textRenderer.getWidth(ModuleAnnotationHelperFunction.getName(module.getClass())) - 5, yOffset,
                         textColor, true,
                         matrices,
                         drawContext.getVertexConsumers(),
