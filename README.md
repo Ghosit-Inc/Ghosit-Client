@@ -2,7 +2,7 @@
     <img style="border-radius: 50px;" src="https://raw.githubusercontent.com/Nexsus-Inc/Nexsus-Client/refs/heads/main/assets/images/logo.png" alt="Nexsus Client Logo" width="20%"/>
 </p>
 
-<h1 align="center">Nexsus Client</h1>
+<h1 align="center">Nexsus Client (Open Beta)</h1>
 <p align="center">The only utility mod you need</p>
 
 # Links
