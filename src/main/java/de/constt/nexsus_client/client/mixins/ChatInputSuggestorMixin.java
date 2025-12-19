@@ -3,6 +3,8 @@ package de.constt.nexsus_client.client.mixins;
 import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import com.mojang.brigadier.suggestion.Suggestions;
+import de.constt.nexsus_client.client.helperFunctions.CommandAnnotationHelper;
+import de.constt.nexsus_client.client.roots.commands.CommandManager;
 import net.minecraft.client.gui.screen.ChatInputSuggestor;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import org.spongepowered.asm.mixin.Final;
@@ -13,7 +15,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import com.mojang.brigadier.ParseResults;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.CommandDispatcher;
 
 import java.util.concurrent.CompletableFuture;
@@ -34,8 +35,9 @@ public abstract class ChatInputSuggestorMixin {
         if (!"*".equals(text)) return;
 
         SuggestionsBuilder builder = new SuggestionsBuilder(text, 0);
-        builder.suggest("*help");
-        builder.suggest("*bind");
+        CommandManager.getCommands().forEach(command -> {
+            builder.suggest("*"+ CommandAnnotationHelper.getCommand(command.getClass()));
+        });
 
         this.pendingSuggestions = CompletableFuture.completedFuture(builder.build());
 
