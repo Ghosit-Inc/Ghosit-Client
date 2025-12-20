@@ -1,7 +1,6 @@
 out/
 .idea_modules/
 .idea/
-*.jar
 *.war
 *.nar
 *.ear
