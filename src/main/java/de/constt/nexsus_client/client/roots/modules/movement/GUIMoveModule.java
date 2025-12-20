@@ -1,10 +1,13 @@
 package de.constt.nexsus_client.client.roots.modules.movement;
 
 import de.constt.nexsus_client.client.annotations.ModuleInfoAnnotation;
+import de.constt.nexsus_client.client.helperFunctions.ChatHelperFunction;
 import de.constt.nexsus_client.client.roots.implementations.CategoryImplementation;
 import de.constt.nexsus_client.client.roots.implementations.ModuleImplementation;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.ingame.InventoryScreen;
+import net.minecraft.util.math.Vec3d;
 
 @ModuleInfoAnnotation(
         name = "GUI Move",
@@ -13,32 +16,27 @@ import net.minecraft.client.MinecraftClient;
         internalModuleName = "guimove"
 )
 public class GUIMoveModule extends ModuleImplementation {
-
     @Override
-    public void onEnable() {
-        ClientTickEvents.END_CLIENT_TICK.register(this::tick);
-    }
+    public void tick() {
+        var client = MinecraftClient.getInstance();
+        var player = client.player;
+        if (player == null) return;
 
-    private void tick(MinecraftClient client) {
-        if (client.player == null) return;
-        if (client.currentScreen == null) return;
+        if (client.currentScreen instanceof InventoryScreen) {
+            var options = client.options;
 
-        float forward = 0f;
-        float sideways = 0f;
+            float forward = 0;
+            float sideways = 0;
 
-        if (client.options.forwardKey.isPressed()) forward += 1f;
-        if (client.options.backKey.isPressed()) forward -= 1f;
-        if (client.options.leftKey.isPressed()) sideways += 1f;
-        if (client.options.rightKey.isPressed()) sideways -= 1f;
+            if (options.forwardKey.isPressed()) forward += 1;
+            if (options.backKey.isPressed()) forward -= 1;
+            if (options.leftKey.isPressed()) sideways += 1;
+            if (options.rightKey.isPressed()) sideways -= 1;
 
-        client.player.input.movementForward = forward;
-        client.player.input.movementSideways = sideways;
-
-        client.player.input.jumping = client.options.jumpKey.isPressed();
-        client.player.input.sneaking = client.options.sneakKey.isPressed();
-
-        if (client.options.sprintKey.isPressed()) {
-            client.player.setSprinting(true);
+            player.input.movementForward = forward;
+            player.input.movementSideways = sideways;
+            player.input.jumping = options.jumpKey.isPressed();
+            player.input.sneaking = options.sneakKey.isPressed();
         }
     }
 }
