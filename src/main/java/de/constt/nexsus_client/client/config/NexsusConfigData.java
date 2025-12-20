@@ -1,5 +1,6 @@
 package de.constt.nexsus_client.client.config;
 
+import de.constt.nexsus_client.client.annotations.CommandAnnotation;
 import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.IOException;
@@ -11,8 +12,7 @@ import java.util.Map;
 
 public final class NexsusConfigData {
 
-    private static final Path ROOT_FOLDER =
-            FabricLoader.getInstance().getConfigDir().resolve("NexsusClient");
+    private static final Path ROOT_FOLDER = FabricLoader.getInstance().getConfigDir().resolve("NexsusClient");
     private static final Path CONFIG_PATH = ROOT_FOLDER.resolve("nexsus_client.cfg");
     public static final Path PROFILES_FOLDER = ROOT_FOLDER.resolve("profiles");
     public static final Path FRIENDS_FOLDER = ROOT_FOLDER.resolve("friends");
