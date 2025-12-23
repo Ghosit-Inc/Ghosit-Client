@@ -4,6 +4,8 @@ import de.constt.nexsus_client.client.annotations.ModuleInfoAnnotation;
 import de.constt.nexsus_client.client.mixins.PlayerMoveC2SPacketAccessor;
 import de.constt.nexsus_client.client.roots.implementations.CategoryImplementation;
 import de.constt.nexsus_client.client.roots.implementations.ModuleImplementation;
+import de.constt.nexsus_client.client.settings.FloatSetting;
+import de.constt.nexsus_client.client.settings.NumberSetting;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
@@ -20,20 +22,32 @@ public class FlightModule extends ModuleImplementation {
     private double previousY;
     private int floatingTicks;
 
+    private final FloatSetting flightSpeed =
+            new FloatSetting(1, 100, 5);
+
     @Override
     public void toggle() {
+        var player = MinecraftClient.getInstance().player;
         super.toggle();
 
-        var player = MinecraftClient.getInstance().player;
         if (player == null) return;
 
         player.getAbilities().allowFlying = this.enabled;
+        player.getAbilities().setFlySpeed(flightSpeed.getValue());
         if (!this.enabled) {
             player.getAbilities().flying = false;
         }
 
         this.previousY = player.getY();
         this.floatingTicks = 0;
+    }
+
+    @Override
+    public void setSettings() {
+        var player = MinecraftClient.getInstance().player;
+
+        assert player != null;
+        player.getAbilities().setFlySpeed(flightSpeed.getValue());
     }
 
     @Override
