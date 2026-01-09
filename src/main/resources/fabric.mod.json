@@ -14,7 +14,9 @@
       "de.constt.ghosit_client.client.utilities.Ghosit_clientDataGenerator"
     ],
     "client": ["de.constt.ghosit_client.client.Ghosit_clientClient"],
-    "main": ["de.constt.ghosit_client.Ghosit_client"]
+    "main": [
+      "de.constt.ghosit_client.Ghosit_client"
+    ]
   },
   "mixins": ["ghosit_client.mixins.json"],
   "depends": {
