@@ -2,9 +2,15 @@ package de.constt.ghosit_client.client.events.client;
 
 import de.constt.ghosit_client.client.config.GhositConfigData;
 import de.constt.ghosit_client.client.helperFunctions.ChatHelperFunction;
+import de.constt.ghosit_client.client.helperFunctions.WindowHelperFunction;
 import de.constt.ghosit_client.client.roots.commands.CommandManager;
 import de.constt.ghosit_client.client.roots.modules.ModuleManager;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+
+import java.io.IOException;
+
+import static de.constt.ghosit_client.client.helperFunctions.WindowHelperFunction.setWindowIcon;
 
 public class ClientTickEventsEvent {
     public static void register() {
@@ -39,5 +45,13 @@ public class ClientTickEventsEvent {
                     }
                 })
         );
+
+        ClientLifecycleEvents.CLIENT_STARTED.register(client -> {
+            try {
+                WindowHelperFunction.setWindowIcon("/assets/ghosit_client/textures/logo-32.png");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }
