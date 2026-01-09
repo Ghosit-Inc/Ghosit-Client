@@ -24,8 +24,9 @@ public final class DiscordIPCCore {
     public static void start() {
         if (active) return;
 
+        client = new IPCClient(CLIENT_ID);
+
         try {
-            client = new IPCClient(CLIENT_ID);
             active = true;
         } catch (Throwable t) {
             active = false;
