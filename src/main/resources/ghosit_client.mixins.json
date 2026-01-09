@@ -1,0 +1,24 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "de.constt.ghosit_client.client.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AbstractBlockStateMixin",
+    "BiomeMixin",
+    "ClientConnectionMixin",
+    "PlayerMoveC2SPacketAccessor",
+    "WorldMixin"
+  ],
+  "client": [
+    "ChatInputSuggestorMixin",
+    "LightmapTextureManagerMixin",
+    "SplashTextResourceSupplierMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
