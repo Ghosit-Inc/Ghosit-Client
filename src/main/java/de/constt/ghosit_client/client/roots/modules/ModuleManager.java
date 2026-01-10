@@ -3,6 +3,8 @@ package de.constt.ghosit_client.client.roots.modules;
 import de.constt.ghosit_client.client.roots.implementations.ModuleImplementation;
 
 import de.constt.ghosit_client.client.roots.modules.events.ChatCalculatorModule;
+import de.constt.ghosit_client.client.roots.modules.exploits.BowBombModule;
+import de.constt.ghosit_client.client.roots.modules.exploits.WorldGuardBypassModule;
 import de.constt.ghosit_client.client.roots.modules.misc.ClickGUIModule;
 import de.constt.ghosit_client.client.roots.modules.misc.DebuggerModule;
 import de.constt.ghosit_client.client.roots.modules.misc.PacketLoggerModule;
@@ -13,7 +15,6 @@ import de.constt.ghosit_client.client.roots.modules.player.NoHungerModule;
 import de.constt.ghosit_client.client.roots.modules.render.*;
 import de.constt.ghosit_client.client.roots.modules.world.NoFallModule;
 import de.constt.ghosit_client.client.roots.modules.world.XRayModule;
-import net.minecraft.client.option.KeyBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,20 @@ public class ModuleManager {
 
     public static void init() {
         // MODULES
+
+        // Events
+        MODULES.add(new ChatCalculatorModule());
+
+        // Exploits
+        MODULES.add(new BowBombModule());
+        MODULES.add(new WorldGuardBypassModule());
+
+        // Misc
+        MODULES.add(new ClickGUIModule());
+        MODULES.add(new DebuggerModule());
+        MODULES.add(new PacketLoggerModule());
+        MODULES.add(new SpammerModule());
+
         // Movement
         MODULES.add(new FlightModule());
         MODULES.add(new GUIMoveModule());
@@ -37,20 +52,11 @@ public class ModuleManager {
         MODULES.add(new NoWheaterModule());
         MODULES.add(new StorageESPModule());
 
-        // Misc
-        MODULES.add(new ClickGUIModule());
-        MODULES.add(new DebuggerModule());
-        MODULES.add(new PacketLoggerModule());
-        MODULES.add(new SpammerModule());
+        // Skyblock
 
         // World
         MODULES.add(new NoFallModule());
         MODULES.add(new XRayModule());
-
-        // Events
-        MODULES.add(new ChatCalculatorModule());
-
-        // Skyblock
     }
 
 
