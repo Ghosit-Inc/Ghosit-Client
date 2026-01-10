@@ -21,13 +21,6 @@
 
 - To submit Bug Reports or Suggestions please join the official discord server and submit your report/reports or suggestions
 
-# Credits
-
-- [Fabric Team](https://github.com/FabricMC): [Fabric](https://github.com/FabricMC/fabric-loader) and [Yarn](https://github.com/FabricMC/yarn)
-- [Keksuccino](https://github.com/Keksuccino): [FancyMenu - Custom WindowIcon Code](https://github.com/Keksuccino/FancyMenu)
-- [ProfessorQu](https://github.com/ProfessorQu): Code snippets from [ProfQuHack](https://github.com/ProfessorQu/ProfQuHack)
-- [Meteor Client](https://meteorclient.net): [Splashtext Mixin](https://github.com/MeteorDevelopment/meteor-client/blob/master/src%2Fmain%2Fjava%2Fmeteordevelopment%2Fmeteorclient%2Fmixin%2FSplashTextResourceSupplierMixin.java)
-
 # License
 
 Read the License at LICENSE.txt file
@@ -41,3 +34,6 @@ Read the License at LICENSE.txt file
 
 - Currently our clients is 100% free.
 - If you want to support our work you can either donate to our Ko-Fi or on our Website
+
+### Credits
+- [Credits](https://github.com/Ghosit-Inc/Ghosit-Client/blob/main/credits.md)
