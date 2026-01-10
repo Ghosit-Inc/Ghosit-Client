@@ -18,6 +18,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 )
 public class TestCommand extends CommandImplementation {
 
+    public TestCommand() {
+        this.args = new String[]{"start", "stop"};
+    }
+
     @Override
     public void executeCommand(String[] parts) {
         super.executeCommand(parts);
