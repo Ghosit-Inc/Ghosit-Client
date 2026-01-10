@@ -5,6 +5,8 @@ import de.constt.ghosit_client.client.annotations.CommandAnnotation;
 public class CommandImplementation {
     protected boolean enabled = false;
 
+    protected String[] args;
+
     public void executeCommand(String[] parts) {
         toggle();
     }
@@ -17,5 +19,13 @@ public class CommandImplementation {
 
     public boolean getEnabledStatus() {
         return enabled;
+    }
+
+    public void setArgs(String[] args) {
+        this.args = args;
+    }
+
+    public String[] getArgs() {
+        return this.args;
     }
 }
