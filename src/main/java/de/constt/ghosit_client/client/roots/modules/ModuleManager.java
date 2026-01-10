@@ -11,6 +11,7 @@ import de.constt.ghosit_client.client.roots.modules.misc.PacketLoggerModule;
 import de.constt.ghosit_client.client.roots.modules.misc.SpammerModule;
 import de.constt.ghosit_client.client.roots.modules.movement.FlightModule;
 import de.constt.ghosit_client.client.roots.modules.movement.GUIMoveModule;
+import de.constt.ghosit_client.client.roots.modules.movement.ParkourModule;
 import de.constt.ghosit_client.client.roots.modules.player.NoHungerModule;
 import de.constt.ghosit_client.client.roots.modules.render.*;
 import de.constt.ghosit_client.client.roots.modules.world.NoFallModule;
@@ -41,6 +42,7 @@ public class ModuleManager {
         // Movement
         MODULES.add(new FlightModule());
         MODULES.add(new GUIMoveModule());
+        MODULES.add(new ParkourModule());
 
         // Player
         MODULES.add(new NoHungerModule());
