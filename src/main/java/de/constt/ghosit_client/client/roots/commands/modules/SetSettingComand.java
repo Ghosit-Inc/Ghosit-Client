@@ -5,7 +5,7 @@ import de.constt.ghosit_client.client.helperFunctions.ChatHelperFunction;
 import de.constt.ghosit_client.client.helperFunctions.ModuleAnnotationHelperFunction;
 import de.constt.ghosit_client.client.roots.implementations.CommandImplementation;
 import de.constt.ghosit_client.client.roots.modules.ModuleManager;
-import de.constt.ghosit_client.client.roots.modules.Setting;
+import de.constt.ghosit_client.client.roots.implementations.SettingImplementation;
 
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -37,7 +37,7 @@ public class SetSettingComand extends CommandImplementation {
             if (parts.length < 3) {
                 String options = module.getSettings()
                         .stream()
-                        .map(Setting::getName)
+                        .map(SettingImplementation::getName)
                         .collect(Collectors.joining(", "));
 
                 ChatHelperFunction.sendCSMessageNeutral(
@@ -50,7 +50,7 @@ public class SetSettingComand extends CommandImplementation {
             // If module + setting + value is given -> set the value
             String settingArg = parts[2].toUpperCase();
 
-            Setting<?> setting = module.getSetting(settingArg);
+            SettingImplementation<?> setting = module.getSetting(settingArg);
             if (setting == null) {
                 ChatHelperFunction.sendCSMessageError(
                         "Unknown setting: " + settingArg,
