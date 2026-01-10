@@ -23,24 +23,36 @@ public class FlightModule extends ModuleImplementation {
 
     @Override
     public void toggle() {
-        var player = MinecraftClient.getInstance().player;
-        assert player != null;
-        if(!player.isCreative()) {
-
-            super.toggle();
-
-            player.getAbilities().allowFlying = this.enabled;
-            player.getAbilities().setFlySpeed(2);
-            if (!this.enabled) {
-                player.getAbilities().flying = false;
-            }
-
-            this.previousY = player.getY();
-            this.floatingTicks = 0;
-        } else {
-            ChatHelperFunction.sendCSMessageWarning("You are in creative! Please switch your gamemode to any besides creative to use flight", false);
+        MinecraftClient client = MinecraftClient.getInstance();
+        if (client.player == null || client.world == null) {
+            ChatHelperFunction.sendCSMessageWarning(
+                    "Flight cannot be toggled while not in-game", false
+            );
+            return;
         }
+
+        var player = client.player;
+
+        if (player.isCreative()) {
+            ChatHelperFunction.sendCSMessageWarning(
+                    "You are in creative! Please switch your gamemode to any besides creative to use flight", false
+            );
+            return;
+        }
+
+        super.toggle();
+
+        player.getAbilities().allowFlying = this.enabled;
+        player.getAbilities().setFlySpeed(2);
+
+        if (!this.enabled) {
+            player.getAbilities().flying = false;
+        }
+
+        this.previousY = player.getY();
+        this.floatingTicks = 0;
     }
+
 
     @Override
     public boolean modifyPacket(Packet<?> packet) {
