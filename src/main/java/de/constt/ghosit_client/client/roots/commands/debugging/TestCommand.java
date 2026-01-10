@@ -2,6 +2,7 @@ package de.constt.ghosit_client.client.roots.commands.debugging;
 
 import de.constt.ghosit_client.client.annotations.CommandAnnotation;
 import de.constt.ghosit_client.client.helperFunctions.ChatHelperFunction;
+import de.constt.ghosit_client.client.helperFunctions.MacroInputHelperFunction;
 import de.constt.ghosit_client.client.helperFunctions.TitleHelperFunction;
 import de.constt.ghosit_client.client.roots.implementations.CommandImplementation;
 import de.constt.ghosit_client.client.roots.modules.ModuleManager;
