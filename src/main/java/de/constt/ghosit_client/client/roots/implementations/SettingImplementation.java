@@ -1,10 +1,10 @@
-package de.constt.ghosit_client.client.roots.modules;
+package de.constt.ghosit_client.client.roots.implementations;
 
-public abstract class Setting<T> {
+public abstract class SettingImplementation<T> {
     private final String name;
     private T value;
 
-    protected Setting(String name, T defaultValue) {
+    protected SettingImplementation(String name, T defaultValue) {
         this.name = name.toUpperCase();
         this.value = defaultValue;
     }
