@@ -10,20 +10,24 @@ import net.minecraft.client.MinecraftClient;
         description = "Automaticly sends messages from your account to chat",
         category = CategoryImplementation.Categories.MISC,
         internalModuleName = "spammer"
-
 )
-
 public class SpammerModule extends ModuleImplementation {
+
     private int tickCounter = 0;
 
     @Override
     public void tick() {
-        if(tickCounter == 4) {
-            this.tickCounter = 0;
-            assert MinecraftClient.getInstance().player != null;
-            MinecraftClient.getInstance().player.networkHandler.sendChatMessage("ghosit client currently free!");
-            super.tick();
+        MinecraftClient mc = MinecraftClient.getInstance();
+        if (mc == null || mc.player == null || mc.world == null || mc.player.networkHandler == null) {
+            tickCounter = 0;
+            return;
         }
-        this.tickCounter++;
+
+        if (++tickCounter >= 4) {
+            tickCounter = 0;
+            mc.player.networkHandler.sendChatMessage("Ghosit client currently free!");
+        }
+
+        super.tick();
     }
 }
