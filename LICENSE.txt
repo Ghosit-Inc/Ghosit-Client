@@ -1,2 +1,51 @@
-Copyright (c) 2025 constt
-All rights reserved.
+Ghosit Client End User License Agreement (EULA)
+
+Copyright (c) 2026, constt. All rights reserved.
+
+By downloading, installing, or using Ghosit Client (“Software”), you agree to the following terms:
+
+1. License Grant
+
+You are granted a non-transferable, non-exclusive, revocable license to use the Software solely for personal, non-commercial purposes.
+
+You may run the Software, but may not distribute, sell, share, or sublicense it in any form.
+
+2. Restrictions
+
+You may not:
+
+Copy, modify, or create derivative works of the Software.
+
+Include any part of the Software in other mods, projects, or software.
+
+Claim the Software or any part of it as your own.
+
+Reverse-engineer, decompile, or attempt to extract source code.
+
+Use the Software for commercial purposes without explicit written permission.
+
+3. Ownership
+
+All rights, title, and interest in the Software remain with the author (constt).
+
+No rights are granted except as expressly stated in this EULA.
+
+4. Distribution
+
+You may not redistribute, upload, or share the Software in any public or private forums, websites, or platforms.
+
+Violations may result in legal action.
+
+5. Termination
+
+This license is effective until terminated.
+
+The license will terminate automatically without notice if you violate any term.
+
+Upon termination, you must delete all copies of the Software.
+
+6. Disclaimer
+
+The Software is provided “as-is,” without warranty of any kind.
+
+The author is not responsible for any damage, data loss, or issues caused by using the Software.
