@@ -1,8 +1,7 @@
 package de.constt.ghosit_client.client.roots.implementations;
 
 import de.constt.ghosit_client.client.helperFunctions.ModuleAnnotationHelperFunction;
-import de.constt.ghosit_client.client.roots.modules.Setting;
-import de.constt.ghosit_client.client.roots.modules.settings.BooleanSetting;
+import de.constt.ghosit_client.client.roots.modules.settings.BooleanSettingImplementation;
 import net.minecraft.network.packet.Packet;
 import org.lwjgl.glfw.GLFW;
 
@@ -11,21 +10,21 @@ import java.util.*;
 public abstract class ModuleImplementation {
     protected boolean enabled = false;
     public int keyBindingCode = GLFW.GLFW_KEY_UNKNOWN;;
-    private final Map<String, Setting<?>> settings = new HashMap<>();
+    private final Map<String, SettingImplementation<?>> settings = new HashMap<>();
 
     protected ModuleImplementation() {
-        registerSetting(new BooleanSetting("DISABLE_ON_TOGGLE", false));
+        registerSetting(new BooleanSettingImplementation("DISABLE_ON_TOGGLE", false));
     }
 
-    protected void registerSetting(Setting<?> setting) {
+    protected void registerSetting(SettingImplementation<?> setting) {
         settings.put(setting.getName(), setting);
     }
 
-    public Setting<?> getSetting(String name) {
+    public SettingImplementation<?> getSetting(String name) {
         return settings.get(name.toUpperCase());
     }
 
-    public Collection<Setting<?>> getSettings() {
+    public Collection<SettingImplementation<?>> getSettings() {
         return settings.values();
     }
 
@@ -34,7 +33,7 @@ public abstract class ModuleImplementation {
      *
      */
     public void toggle() {
-        if (getSetting("DISABLE_ON_TOGGLE") instanceof BooleanSetting s) {
+        if (getSetting("DISABLE_ON_TOGGLE") instanceof BooleanSettingImplementation s) {
             if (s.get()) {
                 this.toggle();
                 return;
@@ -91,8 +90,8 @@ public abstract class ModuleImplementation {
 
     /**
      * Modify minecraft packets from the module
+     *
      * @param packet Packet
-     * @return False
      */
     public boolean modifyPacket(Packet<?> packet) {
         return false;
