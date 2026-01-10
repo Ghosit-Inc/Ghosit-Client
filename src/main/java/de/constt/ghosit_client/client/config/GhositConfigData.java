@@ -17,6 +17,7 @@ public final class GhositConfigData {
     public static final Path FRIENDS_FOLDER = ROOT_FOLDER.resolve("friends");
     public static final Path WAYPOINTS_FOLDER = ROOT_FOLDER.resolve("waypoints");
     public static final Path CONFIGS_FOLDER = ROOT_FOLDER.resolve("configs");
+    public static final Path CACHE_FOLDER = ROOT_FOLDER.resolve(".cache");
 
     private static final Map<String, String> configValues = new HashMap<>();
 
@@ -32,6 +33,7 @@ public final class GhositConfigData {
             if (!Files.exists(FRIENDS_FOLDER)) Files.createDirectories(FRIENDS_FOLDER);
             if (!Files.exists(WAYPOINTS_FOLDER)) Files.createDirectories(WAYPOINTS_FOLDER);
             if (!Files.exists(CONFIGS_FOLDER)) Files.createDirectories(CONFIGS_FOLDER);
+            if (!Files.exists(CACHE_FOLDER)) Files.createDirectories(CACHE_FOLDER);
 
             // load or create config
             if (Files.exists(CONFIG_PATH)) {
@@ -40,6 +42,7 @@ public final class GhositConfigData {
                 configValues.put("clientVersion", "0.1");
                 configValues.put("silentMode", "false");
                 configValues.put("watermark",  "true");
+                configValues.put("commandSuggestions", "true");
                 save();
             }
 
