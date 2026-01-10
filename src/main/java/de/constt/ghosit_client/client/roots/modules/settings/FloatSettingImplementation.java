@@ -1,9 +1,9 @@
 package de.constt.ghosit_client.client.roots.modules.settings;
 
-import de.constt.ghosit_client.client.roots.modules.Setting;
+import de.constt.ghosit_client.client.roots.implementations.SettingImplementation;
 
-public class FloatSetting extends Setting<Float> {
-    public FloatSetting(String name, float def) {
+public class FloatSettingImplementation extends SettingImplementation<Float> {
+    public FloatSettingImplementation(String name, float def) {
         super(name, def);
     }
 

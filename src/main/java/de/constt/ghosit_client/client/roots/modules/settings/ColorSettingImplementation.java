@@ -1,9 +1,9 @@
 package de.constt.ghosit_client.client.roots.modules.settings;
 
-import de.constt.ghosit_client.client.roots.modules.Setting;
+import de.constt.ghosit_client.client.roots.implementations.SettingImplementation;
 
-public class ColorSetting extends Setting<String> {
-    public ColorSetting(String name, String defaultHex) {
+public class ColorSettingImplementation extends SettingImplementation<String> {
+    public ColorSettingImplementation(String name, String defaultHex) {
         super(name, defaultHex);
     }
 

@@ -1,9 +1,9 @@
 package de.constt.ghosit_client.client.roots.modules.settings;
 
-import de.constt.ghosit_client.client.roots.modules.Setting;
+import de.constt.ghosit_client.client.roots.implementations.SettingImplementation;
 
-public class NumberSetting extends Setting<Integer> {
-    public NumberSetting(String name, int def) {
+public class NumberSettingImplementation extends SettingImplementation<Integer> {
+    public NumberSettingImplementation(String name, int def) {
         super(name, def);
     }
 

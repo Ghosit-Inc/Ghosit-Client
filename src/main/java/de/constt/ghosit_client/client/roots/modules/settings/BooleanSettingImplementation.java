@@ -1,9 +1,9 @@
 package de.constt.ghosit_client.client.roots.modules.settings;
 
-import de.constt.ghosit_client.client.roots.modules.Setting;
+import de.constt.ghosit_client.client.roots.implementations.SettingImplementation;
 
-public class BooleanSetting extends Setting<Boolean> {
-    public BooleanSetting(String name, boolean def) {
+public class BooleanSettingImplementation extends SettingImplementation<Boolean> {
+    public BooleanSettingImplementation(String name, boolean def) {
         super(name, def);
     }
 
