@@ -31,7 +31,7 @@ import java.nio.ByteBuffer;
 import static de.constt.ghosit_client.client.helperFunctions.WindowHelperFunction.setWindowIcon;
 
 public class Ghosit_clientClient implements ClientModInitializer {
-    public static final Logger LOGGER = LoggerFactory.getLogger("ghosit_client");
+    public static final Logger C_LOGGER = LoggerFactory.getLogger("ghosit_client");
     public static final String MOD_ID = "ghosit_client";
 
     @Override
