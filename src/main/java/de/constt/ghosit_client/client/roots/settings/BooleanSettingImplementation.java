@@ -1,4 +1,4 @@
-package de.constt.ghosit_client.client.roots.modules.settings;
+package de.constt.ghosit_client.client.roots.settings;
 
 import de.constt.ghosit_client.client.roots.implementations.SettingImplementation;
 

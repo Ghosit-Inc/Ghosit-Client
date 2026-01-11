@@ -1,7 +1,7 @@
 package de.constt.ghosit_client.client.roots.implementations;
 
 import de.constt.ghosit_client.client.helperFunctions.ModuleAnnotationHelperFunction;
-import de.constt.ghosit_client.client.roots.modules.settings.BooleanSettingImplementation;
+import de.constt.ghosit_client.client.roots.settings.BooleanSettingImplementation;
 import net.minecraft.network.packet.Packet;
 import org.lwjgl.glfw.GLFW;
 
