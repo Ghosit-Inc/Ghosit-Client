@@ -1,7 +1,5 @@
 package de.constt.ghosit_client.client.roots.implementations;
 
-import de.constt.ghosit_client.client.annotations.CommandAnnotation;
-
 public class CommandImplementation {
     protected boolean enabled = false;
 
@@ -10,6 +8,7 @@ public class CommandImplementation {
     public void executeCommand(String[] parts) {
         toggle();
     }
+
 
     public void tick() {}
 
