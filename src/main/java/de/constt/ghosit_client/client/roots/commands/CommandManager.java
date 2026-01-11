@@ -7,6 +7,7 @@ import de.constt.ghosit_client.client.roots.commands.modules.BindCommand;
 import de.constt.ghosit_client.client.roots.commands.modules.SetSettingComand;
 import de.constt.ghosit_client.client.roots.commands.modules.ToggleCommand;
 import de.constt.ghosit_client.client.roots.commands.modules.UnbindCommand;
+import de.constt.ghosit_client.client.roots.commands.system.ServerCommand;
 import de.constt.ghosit_client.client.roots.implementations.CommandImplementation;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class CommandManager {
         COMMANDS.add(new SetSettingComand());
         COMMANDS.add(new TestCommand());
         COMMANDS.add(new LockMouseCommand());
+        COMMANDS.add(new ServerCommand());
     }
 
     /**
