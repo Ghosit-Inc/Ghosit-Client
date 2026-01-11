@@ -88,20 +88,22 @@ public class RenderHelperFunction {
         int screenWidth = MinecraftClient.getInstance().getWindow().getScaledWidth();
 
         for(ModuleImplementation module: ModuleManager.getModules()) {
-            if(Objects.requireNonNull(ModuleManager.getModule(module.getClass())).getEnabledStatus()) {
-                textRenderer.draw(
-                        ModuleAnnotationHelperFunction.getName(module.getClass()),
-                        screenWidth - MinecraftClient.getInstance().textRenderer.getWidth(ModuleAnnotationHelperFunction.getName(module.getClass())) - 5, yOffset,
-                        textColor, true,
-                        matrices,
-                        drawContext.getVertexConsumers(),
-                        TextRenderer.TextLayerType.NORMAL,
-                        0, 0xF000F0
-                );
+            if(!Objects.equals(ModuleAnnotationHelperFunction.getName(module.getClass()), "Array List")) {
+                if(Objects.requireNonNull(ModuleManager.getModule(module.getClass())).getEnabledStatus()) {
+                    textRenderer.draw(
+                            ModuleAnnotationHelperFunction.getName(module.getClass()),
+                            screenWidth - MinecraftClient.getInstance().textRenderer.getWidth(ModuleAnnotationHelperFunction.getName(module.getClass())) - 5, yOffset,
+                            textColor, true,
+                            matrices,
+                            drawContext.getVertexConsumers(),
+                            TextRenderer.TextLayerType.NORMAL,
+                            0, 0xF000F0
+                    );
 
-                matrices.scale(1f / scale);
-                drawContext.draw();
+                    matrices.scale(1f / scale);
+                    drawContext.draw();
 
+                }
             }
             yOffset += 10;
         }
