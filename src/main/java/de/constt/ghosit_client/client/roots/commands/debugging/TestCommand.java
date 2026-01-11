@@ -4,6 +4,7 @@ import de.constt.ghosit_client.client.annotations.CommandAnnotation;
 import de.constt.ghosit_client.client.helperFunctions.ChatHelperFunction;
 import de.constt.ghosit_client.client.helperFunctions.MacroInputHelperFunction;
 import de.constt.ghosit_client.client.helperFunctions.TitleHelperFunction;
+import de.constt.ghosit_client.client.helperFunctions.ToastHelperFunction;
 import de.constt.ghosit_client.client.roots.implementations.CommandImplementation;
 import de.constt.ghosit_client.client.roots.modules.ModuleManager;
 import de.constt.ghosit_client.client.roots.modules.misc.DebuggerModule;
@@ -19,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class TestCommand extends CommandImplementation {
 
     public TestCommand() {
-        this.args = new String[]{"start", "stop"};
+        this.args = new String[]{"start", "stop", "toast"};
     }
 
     @Override
@@ -27,7 +28,11 @@ public class TestCommand extends CommandImplementation {
         super.executeCommand(parts);
 
         if (parts == null || parts.length < 2) {
-            ChatHelperFunction.sendCSMessageError("Please provide an action: start / stop", false);
+
+            ChatHelperFunction.sendCSMessageError(
+                    "Please provide an argument: " + String.join(" / ", args),
+                    false
+            );
             return;
         }
 
@@ -42,8 +47,15 @@ public class TestCommand extends CommandImplementation {
                 TitleHelperFunction.sendCSTitleWarning("Stopped Tests!", false);
                 break;
 
+            case "toast":
+                ToastHelperFunction.showNeutral("This is a neutral message", 3000);
+                ToastHelperFunction.showWarning("This is a warning!", 3000);
+                ToastHelperFunction.showError("This is an error!", 3000);
+                ToastHelperFunction.showToast("Custom toast! Cyan", 3000, 0xFF00FFFF, 0xAA000000);
+                ToastHelperFunction.showToast("Custom toast! Purple", 3000, 0xFFFF00FF, 0xAA000000);
+
             default:
-                ChatHelperFunction.sendCSMessageError("Please provide an action: start / stop", false);
+                ChatHelperFunction.sendCSMessageError("Please provide an action: " + String.join(" / ", args), false);
                 break;
         }
     }
