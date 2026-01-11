@@ -12,6 +12,7 @@
   ],
   "client": [
     "ChatInputSuggestorMixin",
+    "InGameHudMixin",
     "LightmapTextureManagerMixin",
     "SplashTextResourceSupplierMixin"
   ],
