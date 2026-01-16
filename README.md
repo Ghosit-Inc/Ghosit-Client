@@ -2,7 +2,7 @@
     <img style="border-radius: 50px;" src="https://raw.githubusercontent.com/ghosit-Inc/ghosit-Client/refs/heads/main/assets/images/logo.png" alt="ghosit Client Logo" width="20%"/>
 </p>
 
-<h1 align="center">ghosit Client (Open Beta)</h1>
+<h1 align="center">Ghosit Client (Open Beta)</h1>
 <p align="center">The only utility mod you need</p>
 
 # Links
