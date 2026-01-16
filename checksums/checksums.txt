@@ -1,0 +1,8 @@
+`ghosit_client-0.0.1.jar`
+MD5: `d847ef5a60939f43706aa858b6dcc6fe`
+SHA256: `0084036bf9b74d07ee25bad7ba9a7c57c5236c6ae4057dfe05af5c1e8e09caf9`
+
+`ghosit_client-0.0.1-sources.jar`
+MD5: `376f93fd69438da8cbfb5038d8216cae`
+SHA256: `c95ff0dfa25965429ba38ebb4ef00fe155420e581347b4ab51feb8ce9ac1896b`
+

@@ -1,0 +1,10 @@
+Windows
+- ./checksum_gen_windows.bat
+
+Linux
+- chmod +x checksum_gen_linux.sh
+- ./checksum_gen_linux.sh
+
+MacOS
+- chmod +x checksum_gen_macos.command
+- ./checksum_gen_macos.command
