@@ -48,11 +48,11 @@ public class TestCommand extends CommandImplementation {
                 break;
 
             case "toast":
-                ToastHelperFunction.showNeutral("This is a neutral message", 3000);
-                ToastHelperFunction.showWarning("This is a warning!", 3000);
-                ToastHelperFunction.showError("This is an error!", 3000);
-                ToastHelperFunction.showToast("Custom toast! Cyan", 3000, 0xFF00FFFF, 0xAA000000);
-                ToastHelperFunction.showToast("Custom toast! Purple", 3000, 0xFFFF00FF, 0xAA000000);
+                ToastHelperFunction.showNeutral("This is a neutral message", 3000, true);
+                ToastHelperFunction.showWarning("This is a warning!", 3000, true);
+                ToastHelperFunction.showError("This is an error!", 3000, true);
+                ToastHelperFunction.showToast("Custom toast! Cyan", 3000, 0xFF00FFFF, 0xAA000000, true);
+                ToastHelperFunction.showToast("Custom toast! Purple", 3000, 0xFFFF00FF, 0xAA000000, true);
 
             default:
                 ChatHelperFunction.sendCSMessageError("Please provide an action: " + String.join(" / ", args), false);

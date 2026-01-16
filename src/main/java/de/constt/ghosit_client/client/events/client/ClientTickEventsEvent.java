@@ -10,6 +10,7 @@ import de.constt.ghosit_client.client.roots.modules.movement.FlightModule;
 import de.constt.ghosit_client.client.roots.modules.movement.ParkourModule;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.minecraft.SharedConstants;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -35,7 +36,7 @@ public class ClientTickEventsEvent {
                 boolean watermark = Boolean.parseBoolean(
                         GhositConfigData.getConfigValue("watermark")
                 );
-                if(watermark) client.getWindow().setTitle(ChatHelperFunction.getPrefix(true) +" Client "+clientVersion+" | MC 1.21.1 Fabric");
+                if(watermark) client.getWindow().setTitle(ChatHelperFunction.getPrefix(true) +" Client "+clientVersion+" | MC "+ SharedConstants.getGameVersion().getName() + " "+MinecraftClient.getInstance().getGameVersion());
             }
         });
 

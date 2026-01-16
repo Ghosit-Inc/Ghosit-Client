@@ -18,19 +18,26 @@ public class WindowHelperFunction {
                 MemoryStack stack = MemoryStack.stackPush()
         ) {
             if (inputStream == null) throw new IOException("missing: " + pathInJar);
+
             NativeImage image = NativeImage.read(inputStream);
-            ByteBuffer pixelbuffer = MemoryUtil.memAlloc(image.getWidth() * image.getHeight() * 4);
-            pixelbuffer.asIntBuffer().put(image.copyPixelsRgba());
 
-            GLFWImage.Buffer buf = GLFWImage.malloc(1, stack);
-            buf.position(0);
-            buf.width(image.getWidth());
-            buf.height(image.getHeight());
-            buf.pixels(pixelbuffer);
+            ByteBuffer pixelBuffer = MemoryUtil.memAlloc(image.getWidth() * image.getHeight() * 4);
+            pixelBuffer.asIntBuffer().put(image.copyPixelsAbgr());
+            pixelBuffer.flip();
 
-            GLFW.glfwSetWindowIcon(MinecraftClient.getInstance().getWindow().getHandle(), buf.position(0));
+            GLFWImage.Buffer buffer = GLFWImage.malloc(1, stack);
+            buffer.width(image.getWidth());
+            buffer.height(image.getHeight());
+            buffer.pixels(pixelBuffer);
+
+            GLFW.glfwSetWindowIcon(
+                    MinecraftClient.getInstance().getWindow().getHandle(),
+                    buffer
+            );
+
             image.close();
-            MemoryUtil.memFree(pixelbuffer);
+            MemoryUtil.memFree(pixelBuffer);
         }
     }
+
 }

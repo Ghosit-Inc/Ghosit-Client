@@ -26,9 +26,7 @@ public class NoFallModule extends ModuleImplementation {
             ((PlayerMoveC2SPacketAccessor) packet).setOnGround(true);
         }
         else {
-            // Allow Elytra Flying
-            if (player.isFallFlying()) return false;
-            // Don't kill the player when NoFall is turned on too late (cancel fall damage)
+            if (player.isGliding()) return false;
             if (player.getVelocity().getY() > -0.5) return false;
             ((PlayerMoveC2SPacketAccessor) packet).setOnGround(true);
         }

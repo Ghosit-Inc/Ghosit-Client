@@ -9,6 +9,7 @@ import de.constt.ghosit_client.client.roots.modules.misc.DebuggerModule;
 import net.fabricmc.fabric.api.client.message.v1.ClientSendMessageEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -42,39 +43,60 @@ public class ClientReciveMessageEvent {
             if(ModuleManager.isEnabled(ChatCalculatorModule.class)) {
                 int calculatedNumber = 0;
                 int n1, n2;
-                String operator = null;
-
-                // Detect operator
-                if(chatMSG.contains("+")) operator = "+";
-                else if(chatMSG.contains("-")) operator = "-";
-                else if(chatMSG.contains("*")) operator = "*";
-                else if(chatMSG.contains("/")) operator = "/";
+                String operator = getString(chatMSG);
 
                 if(operator != null) {
-                    String[] parts = chatMSG.split(Pattern.quote(operator));
-                    if(parts.length == 2) {
-                        try {
-                            n1 = Integer.parseInt(parts[0].trim());
-                            n2 = Integer.parseInt(parts[1].trim());
+                    try {
+                        if(operator.equals("!")) {
+                            // Factorial (only one number)
+                            n1 = Integer.parseInt(chatMSG.replace("!", "").trim());
+                            calculatedNumber = 1;
+                            for(int i = 2; i <= n1; i++) calculatedNumber *= i;
 
-                            switch (operator) {
-                                case "*" -> calculatedNumber = n1 * n2;
-                                case "+" -> calculatedNumber = n1 + n2;
-                                case "-" -> calculatedNumber = n1 - n2;
-                                case "/" -> {
-                                    if(n2 != 0) calculatedNumber = n1 / n2;
-                                    else {
-                                        ChatHelperFunction.sendCSMessageError("Division by zero! (" + n1 + " " + operator + " " + n2 + ")!", false);
-                                    }
-                                }
+                            ChatHelperFunction.sendCSMessageNeutral("Calculation: " + calculatedNumber + " (" + n1 + "!)", false);
+
+                        } else {
+                            String[] parts;
+                            if(operator.equals("max") || operator.equals("min")) {
+                                parts = chatMSG.toLowerCase().replace(operator, "").split(",");
+                            } else {
+                                parts = chatMSG.split(Pattern.quote(operator));
                             }
-                            ChatHelperFunction.sendCSMessageNeutral("Calculation: " + calculatedNumber + " (" + n1 + " " + operator + " " + n2 + ")!", false);
 
-                        } catch(NumberFormatException e) {
-                            ChatHelperFunction.sendCSMessageError("Invalid numbers! (" + chatMSG + ")", false);
+                            if(parts.length == 2) {
+                                n1 = Integer.parseInt(parts[0].trim());
+                                n2 = Integer.parseInt(parts[1].trim());
+
+                                switch(operator) {
+                                    case "*" -> calculatedNumber = n1 * n2;
+                                    case "+" -> calculatedNumber = n1 + n2;
+                                    case "-" -> calculatedNumber = n1 - n2;
+                                    case "/" -> {
+                                        if(n2 != 0) calculatedNumber = n1 / n2;
+                                        else {
+                                            ChatHelperFunction.sendCSMessageError("Division by zero! (" + n1 + " " + operator + " " + n2 + ")!", false);
+                                        }
+                                    }
+                                    case "%" -> {
+                                        if(n2 != 0) calculatedNumber = n1 % n2;
+                                        else {
+                                            ChatHelperFunction.sendCSMessageError("Modulo by zero! (" + n1 + " % " + n2 + ")!", false);
+                                        }
+                                    }
+                                    case "^" -> {
+                                        calculatedNumber = (int)Math.pow(n1, n2);
+                                    }
+                                    case "max" -> calculatedNumber = Math.max(n1, n2);
+                                    case "min" -> calculatedNumber = Math.min(n1, n2);
+                                }
+
+                                ChatHelperFunction.sendCSMessageNeutral("Calculation: " + calculatedNumber + " (" + n1 + " " + operator + " " + n2 + ")", false);
+                            } else {
+                                ChatHelperFunction.sendCSMessageError("Invalid format! (" + chatMSG + ")", false);
+                            }
                         }
-                    } else {
-                        ChatHelperFunction.sendCSMessageError("Invalid format! (" + chatMSG + ")", false);
+                    } catch(NumberFormatException e) {
+                        ChatHelperFunction.sendCSMessageError("Invalid numbers! (" + chatMSG + ")", false);
                     }
                 } else {
                     ChatHelperFunction.sendCSMessageError("No operator found! (" + chatMSG + ")", false);
@@ -82,7 +104,24 @@ public class ClientReciveMessageEvent {
             }
 
 
+
             return true; // allow normal messages
         });
+    }
+
+    private static @Nullable String getString(String chatMSG) {
+        String operator = null;
+
+        // Detect operator
+        if(chatMSG.contains("+")) operator = "+";
+        else if(chatMSG.contains("-")) operator = "-";
+        else if(chatMSG.contains("*")) operator = "*";
+        else if(chatMSG.contains("/")) operator = "/";
+        else if(chatMSG.contains("%")) operator = "%";
+        else if(chatMSG.contains("^")) operator = "^";
+        else if(chatMSG.toLowerCase().contains("max")) operator = "max";
+        else if(chatMSG.toLowerCase().contains("min")) operator = "min";
+        else if(chatMSG.contains("!")) operator = "!";
+        return operator;
     }
 }

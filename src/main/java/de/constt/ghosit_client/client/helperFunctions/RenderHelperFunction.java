@@ -40,14 +40,13 @@ public class RenderHelperFunction {
         matrices.scale(scale);
 
         assert MinecraftClient.getInstance().player != null;
-        textRenderer.draw(
+        drawContext.drawText(
+                MinecraftClient.getInstance().textRenderer,
                 ChatHelperFunction.getPrefix(true)+" [v"+clientVersion+"]",
-                5,5,
-                textColor, true,
-                matrices,
-                drawContext.getVertexConsumers(),
-                TextRenderer.TextLayerType.NORMAL,
-                0, 0xF000F0
+                5,
+                5,
+                textColor,
+                true
         );
 
         matrices.scale(1f / scale);
@@ -62,15 +61,15 @@ public class RenderHelperFunction {
         matrices.scale(scale);
 
         assert MinecraftClient.getInstance().player != null;
-        textRenderer.draw(
+        drawContext.drawText(
+                MinecraftClient.getInstance().textRenderer,
                 MinecraftClient.getInstance().getCurrentFps() + " [FPS]",
-                5,20,
-                textColor, true,
-                matrices,
-                drawContext.getVertexConsumers(),
-                TextRenderer.TextLayerType.NORMAL,
-                0, 0xF000F0
+                5,
+                20,
+                textColor,
+                true
         );
+
 
         matrices.scale(1f / scale);
         drawContext.draw();
@@ -90,14 +89,13 @@ public class RenderHelperFunction {
         for(ModuleImplementation module: ModuleManager.getModules()) {
             if(!Objects.equals(ModuleAnnotationHelperFunction.getName(module.getClass()), "Array List")) {
                 if(Objects.requireNonNull(ModuleManager.getModule(module.getClass())).getEnabledStatus()) {
-                    textRenderer.draw(
+                    drawContext.drawText(
+                            MinecraftClient.getInstance().textRenderer,
                             ModuleAnnotationHelperFunction.getName(module.getClass()),
-                            screenWidth - MinecraftClient.getInstance().textRenderer.getWidth(ModuleAnnotationHelperFunction.getName(module.getClass())) - 5, yOffset,
-                            textColor, true,
-                            matrices,
-                            drawContext.getVertexConsumers(),
-                            TextRenderer.TextLayerType.NORMAL,
-                            0, 0xF000F0
+                            screenWidth - MinecraftClient.getInstance().textRenderer.getWidth(ModuleAnnotationHelperFunction.getName(module.getClass())) - 5,
+                            yOffset,
+                            textColor,
+                            true
                     );
 
                     matrices.scale(1f / scale);
