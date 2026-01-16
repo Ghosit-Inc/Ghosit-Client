@@ -15,6 +15,7 @@ import de.constt.ghosit_client.client.roots.modules.movement.ParkourModule;
 import de.constt.ghosit_client.client.roots.modules.player.NoHungerModule;
 import de.constt.ghosit_client.client.roots.modules.render.*;
 import de.constt.ghosit_client.client.roots.modules.skyblock.AntiMacroCheckModule;
+import de.constt.ghosit_client.client.roots.modules.skyblock.AutoExperimentationModule;
 import de.constt.ghosit_client.client.roots.modules.world.FreecamModule;
 import de.constt.ghosit_client.client.roots.modules.world.NoFallModule;
 import de.constt.ghosit_client.client.roots.modules.world.XRayModule;
@@ -58,6 +59,7 @@ public class ModuleManager {
 
         // Skyblock
         MODULES.add(new AntiMacroCheckModule());
+        MODULES.add(new AutoExperimentationModule());
 
         // World
         MODULES.add(new FreecamModule());
